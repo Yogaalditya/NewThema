@@ -28,10 +28,10 @@ if ($user) {
             </li>
 
             @else
-                <li x-data="{ open: false }" 
+                <li x-data="{ open: false }"
                     x-on:mouseover="open = true" x-on:mouseleave="open = false"
                     >
-                    <button 
+                    <button
                         x-ref="button"
                         @@click="open = !open"
                         class="navigation-menu-item btn btn-ghost no-animation btn-sm rounded-lg inline-flex items-center justify-center px-4 transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none group w-max gap-0 ease-out duration-300"
@@ -43,7 +43,7 @@ if ($user) {
                             <span class="ml-1">{{ $item->getLabel() }}</span>
                         @endif
                     </button>
-                    <div 
+                    <div
                         x-show="open"
                         x-transition
                         x-anchor.bottom-end="$refs.button"
