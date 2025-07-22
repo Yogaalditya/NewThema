@@ -81,55 +81,7 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    <div class="user-navigations-menu-mobile">
-                                        <ul role="list space-y-2">
-                                           @foreach ($userNavigationItems as $item)
-                                                @if(!$item->isDisplayed())
-                                                    @continue
-                                                @endif
-                                                @if ($item->children->isEmpty())
-                                                    <li class="navigation-menu-item relative">
-                                                        <x-tempest::link @class([
-                                                            'hover:bg-base-content/10 items-center py-2 px-4 pr-6 text-sm outline-none transition-colors gap-4 w-full flex',
-                                                            'text-primary font-semibold' => request()->url() === $item->getUrl(),
-                                                            'text-slate-900 font-medium' => request()->url() !== $item->getUrl(),
-                                                        ]) :href="$item->getUrl()">
-                                                            {{ $item->getLabel() }}
-                                                        </x-tempest::link>
-                                                    </li>
-                                                @else
-                                                    <li x-data="{ open: false }" class="navigation-menu-item relative">
-                                                        <button 
-                                                            x-ref="button"
-                                                            @@click="open = !open"
-                                                            class="hover:bg-base-content/10 py-2 px-4 pr-6 text-sm outline-none transition-colors gap-4 w-full flex items-center justify-between text-slate-900 font-medium"
-                                                            >
-                                                            <span>{{ $item->getLabel() }}</span>
-                                                            <svg :class="{ '-rotate-180': open}"
-                                                                class="transition relative top-[1px] ml-1 h-3 w-3" xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" aria-hidden="true">
-                                                                <polyline points="6 9 12 15 18 9"></polyline>
-                                                            </svg>
-                                                        </button>
-                                                        <ul x-show="open" x-collapse class="mt-1">
-                                                            @foreach ($item->children as $key => $childItem)
-                                                                <li class="navigation-menu-item relative">
-                                                                    <x-tempest::link @class([
-                                                                        'hover:bg-base-content/10 items-center py-2 px-4 pr-6 text-sm outline-none transition-colors gap-4 w-full flex',
-                                                                        'text-primary font-semibold' => request()->url() === $item->getUrl(),
-                                                                        'text-slate-900 font-medium' => request()->url() !== $item->getUrl(),
-                                                                    ]) :href="$item->getUrl()">
-                                                                        {{ $childItem->getLabel() }}
-                                                                    </x-tempest::link>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </li>
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

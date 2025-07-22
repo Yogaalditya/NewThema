@@ -1,4 +1,6 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
 :root {
     --primary-color: 0.314 0.784 267.78deg;
     --secondary-color: 0.314 0.5 267.78deg;
@@ -12,6 +14,99 @@
     --shadow-color: rgba(0, 0, 0, 0.25);
     --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
     
+}
+
+/* font bagian judulnya */
+.font-oswald {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 2rem !important;
+    color: #009999;
+}
+
+
+
+
+/* sebagian text navbar berwarna */
+.navbar-items, .navbar-items * {
+  color: #009999 !important;
+}
+.navigation-menu-item, .navigation-menu-item * {
+  color: #009999 !important;
+}
+
+/* Border radius bawah untuk navbar, dan ada animasi transisi pergantian warna navbar jika kita scroll kebawah */
+.navbar-container {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  overflow: hidden;
+  transition: background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* bagian menunya jika kita hover akan memunculkan animasinya */
+.holographic-card {
+  min-width: 90px;
+  min-height: 36px;
+  padding: 0.25rem 1.25rem;
+  background: #00000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+}
+
+.holographic-card h2 {
+  color: #0ff;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(0,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-card:hover {
+transform: scale(1.05);
+box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+
+.holographic-card * {
+  background: transparent !important;
+}
+
+
+.holographic-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent !important;
+  pointer-events: none;
+}
+
+
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
 }
 
 .tag-ann {

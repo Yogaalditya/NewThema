@@ -18,7 +18,7 @@ if ($user) {
             @endif
 
             @if ($item->children->isEmpty())
-            <li>
+            <li class="holographic-card">
                 <x-tempest::link
                     class="navigation-menu-item btn no-animation btn-ghost btn-sm rounded-lg inline-flex items-center justify-center px-4 transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none group w-max gap-0 ease-out duration-300"
                     :href="$item->getUrl()"
@@ -48,11 +48,7 @@ if ($user) {
                         x-transition
                         x-anchor.bottom-end="$refs.button"
                         x-cloak
-<<<<<<< HEAD
                         class="navbar-dropdown-content text-gray-800"
-=======
-                        class="navbar-dropdown-content text-gray-800 z-50"
->>>>>>> 3c54a4d (Rework navbar: UI modern, garis horizontal, font custom, dropdown user menu di atas garis, dan perbaikan responsif)
                         >
                         <div class="flex flex-col divide-y mt-1 min-w-[12rem] bg-white rounded-md shadow-md">
                             @foreach ($item->children as $key => $childItem)
@@ -68,8 +64,4 @@ if ($user) {
             @endif
         @endforeach
     </ul>
-<<<<<<< HEAD
 </nav>
-=======
-</nav>
->>>>>>> 3c54a4d (Rework navbar: UI modern, garis horizontal, font custom, dropdown user menu di atas garis, dan perbaikan responsif)
