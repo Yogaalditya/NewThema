@@ -16,12 +16,18 @@
     
 }
 
+
+
 /* font bagian judulnya */
 .font-oswald {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
     font-size: 2rem !important;
-    color: #009999;
+    line-height: 1.5 !important;
+
+    background: linear-gradient(135deg, #009999 0%, #003366 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 
@@ -35,11 +41,8 @@
   color: #009999 !important;
 }
 
-/* Border radius bawah untuk navbar, dan ada animasi transisi pergantian warna navbar jika kita scroll kebawah */
+/* animasi transisi pergantian warna navbar jika kita scroll kebawah */
 .navbar-container {
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  overflow: hidden;
   transition: background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 

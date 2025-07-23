@@ -81,38 +81,58 @@
              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                 
                 <div class="relative group animate-popIn delay-600">
-                    <div class="p-4 sm:p-6 bg-white rounded-xl border border-purple-200 shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
-                        <div class="text-center">
-                            <div id="days" class="text-4xl sm:text-5xl font-bold text-gradient mb-2">00</div>
-                            <div class="uppercase tracking-wider text-sm font-semibold text-gray-600">Days</div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner" id="days-flip">
+                            <div class="flip-card-front">
+                                <div class="flip-number" id="days-current">00</div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-number" id="days-next">00</div>
+                            </div>
                         </div>
+                        <div class="flip-label">Days</div>
                     </div>
                 </div>
             
                 <div class="relative group animate-popIn delay-700">
-                    <div class="p-4 sm:p-6 bg-white rounded-xl border border-purple-200 shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
-                        <div class="text-center">
-                            <div id="hours" class="text-4xl sm:text-5xl font-bold text-gradient mb-2">00</div>
-                            <div class="uppercase tracking-wider text-sm font-semibold text-gray-600">Hours</div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner" id="hours-flip">
+                            <div class="flip-card-front">
+                                <div class="flip-number" id="hours-current">00</div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-number" id="hours-next">00</div>
+                            </div>
                         </div>
+                        <div class="flip-label">Hours</div>
                     </div>
                 </div>
             
                 <div class="relative group animate-popIn delay-800">
-                    <div class="p-4 sm:p-6 bg-white rounded-xl border border-purple-200 shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
-                        <div class="text-center">
-                            <div id="minutes" class="text-4xl sm:text-5xl font-bold text-gradient mb-2">00</div>
-                            <div class="uppercase tracking-wider text-sm font-semibold text-gray-600">Minutes</div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner" id="minutes-flip">
+                            <div class="flip-card-front">
+                                <div class="flip-number" id="minutes-current">00</div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-number" id="minutes-next">00</div>
+                            </div>
                         </div>
+                        <div class="flip-label">Minutes</div>
                     </div>
                 </div>
             
                 <div class="relative group animate-popIn delay-900">
-                    <div class="p-4 sm:p-6 bg-white rounded-xl border border-purple-200 shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
-                        <div class="text-center">
-                            <div id="seconds" class="text-4xl sm:text-5xl font-bold text-gradient mb-2">00</div>
-                            <div class="uppercase tracking-wider text-sm font-semibold text-gray-600">Seconds</div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner" id="seconds-flip">
+                            <div class="flip-card-front">
+                                <div class="flip-number" id="seconds-current">00</div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-number" id="seconds-next">00</div>
+                            </div>
                         </div>
+                        <div class="flip-label">Seconds</div>
                     </div>
                 </div>
             </div>            
@@ -186,4 +206,96 @@
 .delay-700 { animation-delay: 0.7s; }
 .delay-800 { animation-delay: 0.8s; }
 .delay-900 { animation-delay: 0.9s; }
+
+/* Flipdown Countdown Styles */
+.flip-card {
+    perspective: 1000px;
+    width: 65%;
+    height: 120px;
+    position: relative;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    background: linear-gradient(135deg, #009999 0%, #003366 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.flip-card-inner.flipping {
+    transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #009999 0%, #003366 100%);
+
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.flip-card-back {
+    transform: rotateX(180deg);
+}
+
+.flip-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    font-family: 'Arial', sans-serif;
+    letter-spacing: -1px;
+}
+
+.flip-label {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4a5568;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 640px) {
+    .flip-card {
+        height: 100px;
+    }
+    
+    .flip-card-inner {
+        height: 65px;
+    }
+    
+    .flip-number {
+        font-size: 2rem;
+    }
+    
+    .flip-label {
+        font-size: 0.75rem;
+        padding: 3px 4px;
+    }
+}
+
+@media (min-width: 768px) {
+    .flip-number {
+        font-size: 3rem;
+    }
+}
 </style>
