@@ -11,6 +11,11 @@
         {{ $slot }}
     </div>
 
+    @php
+        $showCountdown = \App\Facades\Plugin::getPlugin('Tempest')->getSetting('show_countdown');
+    @endphp
+    
+    @if($showCountdown)
     <script>
         let previousValues = {
             days: '00',
@@ -39,6 +44,7 @@
             }
         }
 
+    
         function updateCountdown() {
             const endDate = new Date("{{ $currentScheduledConference->date_start->format('Y-m-d H:i:s') }}").getTime();
             const now = new Date().getTime();
@@ -80,4 +86,5 @@
         updateCountdown(); // Initial call
 
     </script>
+    @endif
 </div>

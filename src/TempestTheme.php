@@ -38,9 +38,13 @@ class TempestTheme extends Theme
     public function getFormSchema(): array
     {
         return [
-            Toggle::make('global_navigation')
+            // Toggle::make('global_navigation')
+            //     ->default(true)
+            //     ->hint('Turn On/Off Global Navigation.'),
+            Toggle::make('show_countdown')
                 ->default(true)
-                ->hint('Turn On/Off Global Navigation.'),
+                ->label('Show Countdown Timer')
+                ->hint('Turn On/Off The Countdown Timer On The Banner.'),
             SpatieMediaLibraryFileUpload::make('banner')
                 ->collection('tempest-banner')
                 ->label('Upload Banner Images')
@@ -187,7 +191,8 @@ class TempestTheme extends Theme
             'button_second' => $this->getSetting('button_second'),
             'button_first_text' => $this->getSetting('button_first_text'),
             'button_second_text' => $this->getSetting('button_second_text'),
-            'global_navigation' => $this->getSetting('global_navigation'),
+            // 'global_navigation' => $this->getSetting('global_navigation'),
+            'show_countdown' => $this->getSetting('show_countdown'),
             'banner_buttons' => $this->getSetting('banner_buttons') ?? [],
         ];
     }

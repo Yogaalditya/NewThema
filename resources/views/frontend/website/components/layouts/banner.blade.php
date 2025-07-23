@@ -75,69 +75,71 @@
         </div>
     </div>
 
-    <div class="countdown-section absolute left-0 right-0 -bottom-24 md:-bottom-20 z-50">
-        <div class="animate-slideUp delay-500 countdown-con w-full max-w-5xl mx-auto backdrop-blur-md bg-white rounded-2xl border border-white/20 shadow-2xl p-6"
-             style="background-image: url('{{ $imagecountdown }}');">
-             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+        @if(app()->getCurrentConference() && \App\Facades\Plugin::getPlugin('Tempest')->getSetting('show_countdown'))
+        <div class="countdown-section absolute left-0 right-0 -bottom-24 md:-bottom-20 z-50">
+            <div class="animate-slideUp delay-500 countdown-con w-full max-w-5xl mx-auto backdrop-blur-md bg-white rounded-2xl border border-white/20 shadow-2xl p-6"
+                style="background-image: url('{{ $imagecountdown }}');">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+                    
+                    <div class="relative group animate-popIn delay-600">
+                        <div class="flip-card">
+                            <div class="flip-card-inner" id="days-flip">
+                                <div class="flip-card-front">
+                                    <div class="flip-number" id="days-current">00</div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="flip-number" id="days-next">00</div>
+                                </div>
+                            </div>
+                            <div class="flip-label">Days</div>
+                        </div>
+                    </div>
                 
-                <div class="relative group animate-popIn delay-600">
-                    <div class="flip-card">
-                        <div class="flip-card-inner" id="days-flip">
-                            <div class="flip-card-front">
-                                <div class="flip-number" id="days-current">00</div>
+                    <div class="relative group animate-popIn delay-700">
+                        <div class="flip-card">
+                            <div class="flip-card-inner" id="hours-flip">
+                                <div class="flip-card-front">
+                                    <div class="flip-number" id="hours-current">00</div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="flip-number" id="hours-next">00</div>
+                                </div>
                             </div>
-                            <div class="flip-card-back">
-                                <div class="flip-number" id="days-next">00</div>
-                            </div>
+                            <div class="flip-label">Hours</div>
                         </div>
-                        <div class="flip-label">Days</div>
                     </div>
-                </div>
-            
-                <div class="relative group animate-popIn delay-700">
-                    <div class="flip-card">
-                        <div class="flip-card-inner" id="hours-flip">
-                            <div class="flip-card-front">
-                                <div class="flip-number" id="hours-current">00</div>
+                
+                    <div class="relative group animate-popIn delay-800">
+                        <div class="flip-card">
+                            <div class="flip-card-inner" id="minutes-flip">
+                                <div class="flip-card-front">
+                                    <div class="flip-number" id="minutes-current">00</div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="flip-number" id="minutes-next">00</div>
+                                </div>
                             </div>
-                            <div class="flip-card-back">
-                                <div class="flip-number" id="hours-next">00</div>
-                            </div>
+                            <div class="flip-label">Minutes</div>
                         </div>
-                        <div class="flip-label">Hours</div>
                     </div>
-                </div>
-            
-                <div class="relative group animate-popIn delay-800">
-                    <div class="flip-card">
-                        <div class="flip-card-inner" id="minutes-flip">
-                            <div class="flip-card-front">
-                                <div class="flip-number" id="minutes-current">00</div>
+                
+                    <div class="relative group animate-popIn delay-900">
+                        <div class="flip-card">
+                            <div class="flip-card-inner" id="seconds-flip">
+                                <div class="flip-card-front">
+                                    <div class="flip-number" id="seconds-current">00</div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="flip-number" id="seconds-next">00</div>
+                                </div>
                             </div>
-                            <div class="flip-card-back">
-                                <div class="flip-number" id="minutes-next">00</div>
-                            </div>
+                            <div class="flip-label">Seconds</div>
                         </div>
-                        <div class="flip-label">Minutes</div>
                     </div>
-                </div>
-            
-                <div class="relative group animate-popIn delay-900">
-                    <div class="flip-card">
-                        <div class="flip-card-inner" id="seconds-flip">
-                            <div class="flip-card-front">
-                                <div class="flip-number" id="seconds-current">00</div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="flip-number" id="seconds-next">00</div>
-                            </div>
-                        </div>
-                        <div class="flip-label">Seconds</div>
-                    </div>
-                </div>
-            </div>            
+                </div>            
+            </div>
         </div>
-    </div>
+        @endif
     @endif
 </div>  
 
